@@ -1,0 +1,2816 @@
+@charset "utf-8";
+
+/* CSS Document */
+/*GLOBAL VARIABLES*/
+/*##########################################*/
+/*These commands in root allow me easily change the websites colour scheme if I wanted to */
+:root {
+  --green: rgba(22, 219, 147, 1);
+  --green-trans: rgba(22, 219, 147, 0.7);
+  --pink: rgba(211, 24, 105, 1);
+  --pink-trans: rgba(211, 24, 105, 0.7);
+  --blue: rgba(4, 140, 168, 1);
+  --blue-trans: rgba(4, 140, 168, 0.85);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a:link, a:visited, a:focus, a:active {
+  color: white;
+  text-decoration: none;
+}
+
+/*NAV*/
+/*##########################################*/
+header {
+  background: var(--green);
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+.logo {
+  max-width: 10em;
+  min-width: 5em;
+  height: auto;
+}
+
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: var(--green);
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+
+/* Hide the checkbox that's used to toggle the hamburger menu*/
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav-toggle-label span {
+  display: block;
+  color: white;
+  font-size: 2rem;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+nav li i {
+  padding-right: 0.5em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+  font-weight: 500;
+}
+
+.nav-toggle:checked~nav {
+  transform: scale(1, 1);
+}
+
+.nav-toggle:checked~nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+/*IMAGE SLIDER*/
+/*##########################################*/
+hero {
+  height: 100vh;
+  width: 100%;
+}
+
+.slider-main {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  overflow: hidden;
+  position: absolute;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+}
+
+.slider-main .hero-overlay {
+  z-index: 999;
+}
+
+.slider-main .hero-overlay .btn {
+  border: 3px solid white;
+}
+
+.slider-main .hero-overlay h1 span {
+  padding-top: 0.1em;
+  font-size: 3rem;
+}
+
+.slider-main .slide-item {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  animation: slide 10s infinite;
+  overflow: hidden;
+}
+
+.slider-main .slide-item:nth-child(2) {
+  left: 0;
+  animation-delay: -0.5s;
+  background-image: url(images/action-adult-adventure-356808.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.slider-main .slide-item:nth-child(3) {
+  left: 100%;
+  animation-delay: 2s;
+  background-image: url(images/adult-adventure-backpack-287240.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.slider-main .slide-item:nth-child(4) {
+  left: 100%;
+  animation-delay: 4.5s;
+  background-image: url(images/affair-asad-asadphoto-1024967.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.slider-main .slide-item:nth-child(5) {
+  left: 100%;
+  animation-delay: 7s;
+  background-image: url(images/agriculture-asia-china-235648.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.slider-main p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 5em;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  margin-top: 10em;
+  color: white;
+}
+
+@keyframes slide {
+  0% {
+    left: 100%;
+    width: 100%;
+  }
+
+  5% {
+    left: 0;
+  }
+
+  25% {
+    left: 0;
+  }
+
+  30% {
+    left: -100%;
+    width: 100%;
+  }
+
+  31% {
+    left: -100%;
+    width: 0;
+  }
+
+  100% {
+    left: 100%;
+    width: 0;
+  }
+}
+
+/*PINK QUOTE BOX*/
+/*##########################################*/
+.below-hero-container {
+  position: absolute;
+  top: 100vh;
+  width: 100%;
+}
+
+.info-section {
+  position: relative;
+  top: -6em;
+  width: 90%;
+  color: white;
+  padding-left: 5%;
+}
+
+.info-section h2 {
+  font-family: 'Roboto', sans-serif;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 1em;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.info-section p {
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-bottom: 2em;
+  font-weight: 200;
+  text-align: center;
+}
+
+.info-container {
+  background: var(--pink);
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+
+/*DISCOVER IMAGES AND TEXT*/
+/*##########################################*/
+.discover-promo-container {
+  position: relative;
+  padding-top: 3em;
+  padding-bottom: 5em;
+  background: linear-gradient(to right, var(--green), var(--blue));
+  width: 100%;
+  color: white;
+}
+
+.disc-promo-content {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.disc-promo-text {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.disc-promo-header {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.disc-promo-header h1 {
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+
+.disc-promo-header h1 span {
+  font-weight: 300;
+}
+
+.disc-promo-content h2, {
+  font-size: 2rem;
+}
+
+.disc-promo-content h3 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  padding-top: 0.5em;
+}
+
+/*Make relative so I can place text on top of it with absolute positioning*/
+.disc-promo-content .image-container {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+}
+
+/*Create the overlay*/
+.disc-promo-content .disc-promo-image-overlay {
+  background: rgba(1, 1, 1, 0.6);
+  position: absolute;
+  z-index: 998;
+  bottom: 1em;
+  left: 3em;
+  right: 3em;
+  padding-bottom: 1em;
+  border-radius: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70em;
+}
+
+/*Create snow button that will appear on the overlay*/
+.disc-promo-content .disc-promo-image-overlay .btn {
+  border: 2px solid white;
+  background: var(--pink);
+  padding: 0.5em;
+  width: 60%;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.5em;
+}
+
+.disc-promo-content .disc-promo-image-overlay .btn .fas {
+  padding-left: 0.5em;
+}
+
+/*Make width 80% and margins auto for scalable padding*/
+.disc-promo-content .disc-promo-image-overlay p {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.disc-promo-content .disc-promo-image-overlay .btn:hover {
+  font-weight: 600;
+}
+
+/*GRID IMAGES*/
+/*##########################################*/
+.destination-promo-section {
+  overflow: hidden;
+  color: white;
+}
+
+.destination-promo-header {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--blue);
+  padding: 0.5em 1em;
+  margin-top: 1em;
+  border: 0.2em solid white;
+}
+
+.destination-promo-header h1 {
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: white;
+}
+
+.destination-promo-header h1 span {
+  font-weight: 300;
+}
+
+.disc-promo-text p {
+  padding-bottom: 5%;
+  padding-top: 5%;
+}
+
+/*FOOTER*/
+/*##########################################*/
+/*Set overflow to auto to ensure the footer's background color spawns behind the elements*/
+footer {
+  overflow: auto;
+  padding: 4em;
+  background: linear-gradient(to right, var(--pink), var(--blue));
+  color: white;
+  width: 100%;
+}
+
+/*Remove hyperlink junk and keep defaults*/
+footer a:link, footer a:visited, footer a:focus, footer a:active {
+  color: white;
+  text-decoration: none;
+}
+
+/*A link is bolder when hovered*/
+footer a:hover {
+  font-weight: 700;
+}
+
+/*Removes the whitespace at the bottom of the footer*/
+footer::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.footer-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-weight: 300;
+}
+
+/*Set width to 25% on mobile because the image col spawns on top not inline*/
+.footer-nav .col {
+  margin-top: 1em;
+  width: 25%;
+  float: left;
+  text-align: left;
+}
+
+/*Remove the line height for less spacing*/
+.footer-nav .col h3 {
+  line-height: 0;
+}
+
+.footer-nav .col li {
+  padding-top: 0.2em;
+}
+
+/*Change the image's col to 100% so that it positions above the others*/
+.footer-nav .footer-logo {
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
+}
+
+/*Resize the logo to an appropriate size*/
+.footer-logo img {
+  max-height: auto;
+  max-width: 200px;
+}
+
+.footer-nav .col .fas {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  padding-right: 0.5em;
+}
+
+/*Copyright at the very bottom*/
+.footer-bottom {
+  background: var(--green);
+  text-align: center;
+  color: white;
+  padding: 2em;
+  width: 100%;
+  height: auto;
+}
+
+.footer-bottom h3 {
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+}
+
+/*Discover Page*/
+/*###########################################################################*/
+/*BREADDRUMB CONSTANTS*/
+/*##########################################*/
+.container {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.breadcrumb {
+  position: absolute;
+  top: 5em;
+  color: white;
+  font-weight: 300;
+  text-align: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.breadcrumb ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.breadcrumb ul li a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  float: left;
+  height: 2em;
+  background: var(--pink);
+  text-align: center;
+  padding: 0.75em 1.5em 0 2em;
+  position: relative;
+  font-size: 1rem;
+}
+
+/*apply some padding betweem the font awesome icons and the text*/
+.breadcrumb ul li a .fas {
+  padding-right: 0.5em;
+}
+
+/*Create the arrow's end shape at the end of the crumb*/
+.breadcrumb ul li a:after {
+  content: "";
+  border-top: 1em solid transparent;
+  border-bottom: 1em solid transparent;
+  border-left: 1em solid var(--pink);
+  position: absolute;
+  right: -1em;
+  top: 0;
+}
+
+/*Create the arrow indentation at the beginning of the crumb*/
+.breadcrumb ul li a:before {
+  content: "";
+  border-top: 1em solid transparent;
+  border-bottom: 1em solid transparent;
+  border-left: 1em solid white;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/*Make sure the first breadcrumb overlaps the other ones*/
+.breadcrumb ul li:first-child a {
+  z-index: 100;
+}
+
+/*Make sure the first breadcrumb overlaps the other ones*/
+.breadcrumb ul li:nth-child(2) a {
+  z-index: 99;
+}
+
+/*Make sure the first breadcrumb doesn;t have a beginning inedentation */
+.breadcrumb ul li:first-child a:before {
+  display: none;
+}
+
+/*changes colour to blue when hovered*/
+.breadcrumb ul li a:hover {
+  background: var(--blue);
+  font-weight: 800;
+}
+
+/*changes the psuedo elements to blue as well*/
+.breadcrumb ul li a:hover:after {
+  border-left-color: var(--blue);
+}
+
+/*DISCOVER HERO CONSTANTS*/
+/*##########################################*/
+.hero-overlay, .slider-main .hero-overlay {
+  position: absolute;
+  color: white;
+  right: 0;
+  left: 0;
+  top: 20em;
+  background: rgba(1, 1, 1, 0.5);
+  border: 0.5em white solid;
+  padding: ;
+  font-size: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  font-family: 'Raleway', sans-serif;
+}
+
+.hero-overlay .btn {
+  border: 3px solid white;
+  font-weight: 500;
+}
+
+.hero-overlay h1, .slider-main .hero-overlay h1 {
+  font-size: 2rem;
+  line-height: 1;
+  padding-top: 0.7em;
+}
+
+.hero-overlay h1 span, .slider-main .hero-overlay h1 span {
+  display: block;
+  font-weight: 300;
+  margin-top: 0.2em;
+}
+
+.hero-overlay .btn, .slider-main .hero-overlay .btn {
+  background-color: var(--pink);
+  padding: 0.5em 1em;
+  border-radius: 0.3em;
+  text-transform: uppercase;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+}
+
+.hero-overlay .btn .fas {
+  display: block;
+  padding-top: 0.5em;
+}
+
+.hero-overlay .btn a:link, .hero-overlay .btn a:visited, .hero-overlay .btn a:focus, .hero-overlay .btn a:active {
+  color: white;
+  text-decoration: none;
+}
+
+/*DISCOVER HERO DISCOVER SNOW*/
+/*##########################################*/
+.container-discover-snow {
+  background-image: url(images/action-adult-adventure-356808.jpg);
+}
+
+.container-discover-jungle {
+  background-image: url(images/cascade-clouds-daylight-772481.jpg);
+}
+
+.container-discover-beach {
+  background-image: url(images/beach-calm-clouds-457882.jpg);
+}
+
+.container-dest-canada {
+  background-image: url(images/canada-cold-fence-777093.jpg);
+}
+
+.container-destinations {
+  background-image: url(images/adult-book-business-297755.jpg);
+}
+
+.container-dest-peru {
+  background-image: url(images/ancient-clouds-historical-site-90597.jpg);
+}
+
+.container-dest-thailand {
+  background-image: url(images/background-beach-blue-sky-1007657.jpg);
+}
+
+.container-dest-references {
+  background-image: url(images/background-beach-blue-sky-1007657.jpg);
+}
+
+/*DISCOVER HERO VARIABLES*/
+/*##########################################*/
+.container-discover {
+  background-image: url(images/adventure-albay-clouds-672358.jpg);
+}
+
+.container-discover .btn {
+  border: 3px solid white;
+  font-weight: 400;
+}
+
+/*DISCOVER INFO*/
+/*##########################################*/
+.below-fold-container {
+  padding-top: 5em;
+  background: linear-gradient(to right, var(--green), var(--blue));
+  color: white;
+  padding-bottom: 5em;
+  width: 100%;
+}
+
+.discover-content {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.discover-content .image-slider {
+  overflow: hidden;
+}
+
+.discover-content .image-slider figure {
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  animation: 20s slideranimation infinite;
+}
+
+.discover-content .image-slider figure img {
+  width: 20%;
+  float: left;
+}
+
+@keyframes slideranimation {
+  0% {
+    left: 0;
+  }
+
+  20% {
+    left: 0;
+  }
+
+  25% {
+    left: -100%;
+  }
+
+  45% {
+    left: -100%;
+  }
+
+  50% {
+    left: -200%;
+  }
+
+  70% {
+    left: -200%;
+  }
+
+  75% {
+    left: -300%;
+  }
+
+  95% {
+    left: -300%;
+  }
+
+  100% {
+    left: -400%;
+  }
+}
+
+.discover-content .image-slider {
+  border: 0.5em solid white;
+}
+
+.discover-content .btn {
+  margin-top: 5%;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  background-color: var(--blue);
+  width: 90%;
+  padding: 0.5em 0.75em;
+  border: 0.2em solid white;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5%;
+}
+
+.discover-content .btn-under-image .fas {
+  padding-left: 0.5em;
+}
+
+.discover-content .btn-under-text .fas {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.discover-content .btn-under-text {
+  display: none;
+}
+
+/*DISCOVER SNOW PAGE*/
+/*############################################################################*/
+.snow-content, .jungle-content, .beach-content {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.snow-content h2, .jungle-content h2, .beach-content h2 {
+  font-size: 2rem;
+}
+
+.snow-content h3, .jungle-content h3, .beach-content h3 {
+  font-size: 1.75rem;
+}
+
+.snow-content img, .jungle-content img, {
+  margin-top: 1em;
+  border-radius: 2em;
+}
+
+/*Make relative so I can place text on top of it with absolute positioning*/
+.snow-content .image-container, .jungle-content .image-container, .beach-content .image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/*Create the overlay*/
+.snow-content .snow-image-overlay, .jungle-content .jungle-image-overlay, .beach-content .beach-image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 1em;
+  background: var(--blue-trans);
+  transform: translateY(150%);
+  border-bottom-left-radius: 2em;
+  border-bottom-right-radius: 2em;
+}
+
+/*Create snow button that will appear on the overlay*/
+.snow-content .snow-image-overlay .btn, .jungle-content .jungle-image-overlay .btn, .beach-content .beach-image-overlay .btn {
+  border: 2px solid white;
+  background: var(--pink);
+  padding: 0.5em;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.5em;
+}
+
+/*Give a subtle effect when the button is hovered*/
+.snow-content .snow-image-overlay .btn:hover, .jungle-content .jungle-image-overlay .btn:hover, .beach-content .beach-image-overlay .btn:hover {
+  font-weight: 600;
+}
+
+/*Add some padding to the left hand side of the font awesome icon for ideal spacing*/
+.snow-content .snow-image-overlay .btn .fas, .jungle-content .jungle-image-overlay .btn .fas, .beach-content .beach-image-overlay .btn .fas {
+  padding-left: 0.5em;
+}
+
+.snow-content .img-cont-2 .snow-image-overlay .btn .fas {
+  padding-left: 0;
+  padding-right: 0.5em;
+}
+
+/*Make width 80% and margins auto for scalable padding*/
+.snow-content .snow-image-overlay p {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*When image is hovered the overlay appears*/
+.snow-content .image-container:hover .snow-image-overlay {
+  transform: translateY(0%);
+  transition: all ease-in-out 300ms;
+}
+
+/*Ensures iframe scales with sceen size */
+.northern-lights-video, .machu-picchu-video, .madagascar-video, .dest-peru-amazon-video, .dest-peru-machu-picchu-video, .dest-thailand-hotel-video {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 51%;
+  margin-top: 3em;
+}
+
+/*Ensures iframe scales with sceen size */
+iframe {
+  width: 100%;
+}
+
+/*Ensures iframe scales with sceen size */
+.northern-lights-video iframe, .machu-picchu-video iframe, .madagascar-video iframe, .dest-peru-amazon-video iframe, .dest-peru-machu-picchu-video iframe, .dest-thailand-hotel-video iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.machu-picchu-video {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.jungle-content .img-cont-2 {
+  margin-top: 2em;
+}
+
+.jg-below-fold-container {
+  background: linear-gradient(to left, var(--green), var(--blue));
+}
+
+.bd-below-fold-container {
+  background: linear-gradient(to top, var(--pink), var(--blue));
+}
+
+.dp-below-fold-container {
+  background: linear-gradient(to left, var(--green), var(--blue));
+}
+
+/*Discover Jungle */
+.currently-offer {
+  margin-top: 10%;
+  border-top: 0.5em solid white;
+  border-bottom: 0.5em solid white;
+  background-position: bottom;
+  width: 100%;
+  float: left;
+  transition: background-position .5s ease-in;
+}
+
+.currently-offer-jungle {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(images/aerial-clouds-dawn-206660.jpg);
+}
+
+.currently-offer-snow {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(images/architecture-building-bungalow-311066.jpg);
+}
+
+.currently-offer-beach {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(images/aerial-beach-beautiful-472309.jpg);
+}
+
+.currently-offer p {
+  text-align: center;
+  font-weight: 200;
+  font-size: 2.5rem;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-transform: uppercase;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.currently-offer .btn {
+  transition: background .5s ease-in;
+  margin-bottom: 1em;
+  font-size: 1.5rem;
+  max-width: 10em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid white;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.currently-offer .btn .fas {
+  padding-left: 0.5em;
+}
+
+.currently-offer:hover {
+  background-position: center;
+}
+
+.currently-offer:hover .btn {
+  background: var(--pink);
+}
+
+.currently-offer .btn:hover {
+  font-weight: 600;
+}
+
+.beach-content .image-container {
+  border: 0.5em solid white;
+}
+
+.beach-content .img-cont-2 {
+  border: none;
+}
+
+.beach-content .image-slider {
+  overflow: hidden;
+  border-radius: none;
+}
+
+.beach-content .image-slider figure {
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  animation: 20s slideranimation infinite;
+}
+
+.beach-content .image-slider figure img {
+  width: 20%;
+  float: left;
+}
+
+/*DESTINATION CANADA PAGE*/
+/*############################################################################*/
+.dest-can-content {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dest-can-content img {
+  border-radius: 0.5em;
+}
+
+.dest-can-content ul {
+  margin: 0;
+  padding: 0;
+}
+
+.dest-can-content ul li {
+  list-style-type: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding-top: 0.2em;
+}
+
+.dest-can-content ul li span {
+  font-weight: 200;
+}
+
+.dest-can-content ul h4 {
+  text-align: center;
+  font-weight: 300;
+  font-size: 2rem;
+  padding-bottom: 0;
+  margin-bottom: 0.5em;
+}
+
+.dest-can-content .img-cont-3 img {
+  /*display:none;*/
+}
+
+.dest-can-content .dest-can-txt-3 {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 100%;
+  z-index: 1000;
+}
+
+.dest-can-content .dest-can-txt-4 {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dest-can-content .dest-can-txt-3 h2 {
+  overflow: hidden;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.dest-can-content .dest-can-txt-3 h2 span {
+  font-weight: 600;
+}
+
+.dest-can-content .dest-can-txt-3 h2:before,
+.dest-can-content .dest-can-txt-3 h2:after {
+  background-color: white;
+  content: "";
+  display: inline-block;
+  height: 0.2em;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.dest-can-content .dest-can-txt-3 h2:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+.dest-can-content .dest-can-txt-3 h2:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+.dest-can-content .dest-can-text h4 {
+  font-size: 1.8rem;
+}
+
+.dest-can-content .dest-can-text h4 .fas, .dest-can-content .dest-can-text h4 .fab {
+  padding-left: 0.5em;
+}
+
+.dest-can-content .image-container {
+  position: relative;
+  border: 0.5em solid white;
+  overflow: hidden;
+  margin-bottom: 5%;
+}
+
+/*Create the overlay*/
+.dest-can-content .dest-can-image-overlay {
+  background: rgba(1, 1, 1, 0.5);
+  position: absolute;
+  bottom: 0.2em;
+  width: 100%;
+  padding-bottom: 1em;
+  border-bottom-left-radius: : 0.5em;
+  border-bottom-right-radius: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.2rem;
+  padding-bottom: 0;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.dest-can-content .line-top {
+  margin-top: 3em;
+  border-top: 0.5em solid white;
+  border-bottom: 0.5em solid white;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(images/adult-adventure-bag-1518035.jpg);
+  background-position: bottom;
+  width: 100%;
+  float: left;
+  transition: background-position .5s ease-in;
+}
+
+.dest-can-content .line-top p {
+  text-align: center;
+  font-weight: 200;
+  font-size: 2.5rem;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-transform: uppercase;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.dest-can-content .line-top .btn {
+  transition: background .5s ease-in;
+  margin-bottom: 1em;
+  font-size: 1.5rem;
+  max-width: 10em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid white;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.dest-can-content .line-top .btn .fas {
+  padding-left: 0.5em;
+}
+
+.dest-can-content .line-top:hover {
+  background-position: center;
+}
+
+.dest-can-content .line-top:hover .btn {
+  background: var(--blue-trans);
+}
+
+.dest-can-content .line-top .btn:hover {
+  font-weight: 600;
+}
+
+/*DESTINATION PERU PAGE*/
+/*############################################################################*/
+.dest-peru-content {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dest-peru-content ul {
+  margin: 0;
+  padding: 0;
+}
+
+.dest-peru-content ul li {
+  list-style-type: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding-top: 0.2em;
+}
+
+.dest-peru-content ul li span {
+  font-weight: 200;
+}
+
+/*Create spacing between text and font awesome icons */
+.dest-peru-content .fas, .dest-peru-content .fab {
+  padding-left: 0.5em;
+}
+
+.dest-peru-content h4 {
+  font-size: 2rem;
+}
+
+.dest-peru-content .price-banner {
+  margin-top: 3em;
+  border-top: 0.5em solid white;
+  border-bottom: 0.5em solid white;
+  background: url(images/beach-dawn-dusk-1144176.jpg);
+  background-position: bottom;
+  width: 100%;
+  float: left;
+  transition: 0.5s ease-in;
+  margin-bottom: 3em;
+}
+
+.dest-peru-content .price-banner p {
+  text-align: center;
+  font-weight: 300;
+  font-size: 2.5rem;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-transform: uppercase;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.dest-peru-content .price-banner .btn {
+  transition: background .5s ease-in;
+  margin-bottom: 1em;
+  font-size: 1.5rem;
+  max-width: 10em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid white;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.dest-peru-content .price-banner .btn .fas {
+  padding-left: 0.5em;
+}
+
+.dest-peru-content .price-banner:hover {
+  background-position: center;
+}
+
+.dest-peru-content .price-banner:hover .btn {
+  background: var(--blue-trans);
+}
+
+.dest-peru-content .price-banner .btn:hover {
+  font-weight: 600;
+}
+
+.dest-peru-content .dest-peru-txt-3 {
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.dest-peru-content .dest-peru-txt-3 h2 {
+  overflow: hidden;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.dest-peru-content .dest-peru-txt-3 h2 span {
+  font-weight: 600;
+}
+
+.dest-peru-content .dest-peru-txt-3 h2:before,
+.dest-peru-content .dest-peru-txt-3 h2:after {
+  background-color: white;
+  content: "";
+  display: inline-block;
+  height: 0.2em;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.dest-peru-content .dest-peru-txt-3 h2:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+.dest-peru-content .dest-peru-txt-3 h2:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+/*REFERENCES PAGE*/
+/*############################################################################*/
+.references-content {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*Make relative so I can place text on top of it with absolute positioning*/
+.references-content .image-container {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  margin-bottom: 1em;
+}
+
+.references-content .video-container {
+  background-color: var(--blue);
+  padding-top: 1em;
+  padding-bottom: 1em;
+  width: 100%;
+  margin-bottom: 5%;
+}
+
+/*Create the overlay*/
+.references-content .references-image-overlay {
+  background: rgba(1, 1, 1, 0.6);
+  position: absolute;
+  z-index: 998;
+  bottom: 1em;
+  left: 3em;
+  right: 3em;
+  padding-bottom: 1em;
+  border-radius: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70em;
+}
+
+/*Create snow button that will appear on the overlay*/
+.references-content .references-image-overlay .btn, .references-content .video-container .btn {
+  border: 2px solid white;
+  background: var(--pink);
+  padding: 0.5em;
+  width: 60%;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.5em;
+}
+
+.references-content .references-image-overlay .btn .fas, .references-content .video-container .btn .fas {
+  padding-left: 0.5em;
+}
+
+/*Make width 80% and margins auto for scalable padding*/
+.references-content .references-image-overlay p {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.references-content .references-image-overlay .btn:hover {
+  font-weight: 600;
+}
+
+/*DESTINATION THAILAND PAGE */
+.dest-thailand-content {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dest-thailand-content .image-container {
+  border: 0.5em solid white;
+}
+
+.dest-thailand-content .dest-thailand-txt-1 h2 {
+  overflow: hidden;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.dest-thailand-content .dest-thailand-txt-1 h2 span {
+  font-weight: 600;
+}
+
+.dest-thailand-content .dest-thailand-txt-1 h2:before,
+.dest-thailand-content .dest-thailand-txt-1 h2:after {
+  background-color: white;
+  content: "";
+  display: inline-block;
+  height: 0.2em;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.dest-thailand-content .dest-thailand-txt-1 h2:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+.dest-thailand-content .dest-thailand-txt-1 h2:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+.dest-thailand-content .img-cont-1 {
+  border: none
+}
+
+.dest-thailand-content .dest-thailand-txt-2 ul {
+  margin: 0;
+  padding: 0;
+}
+
+.dest-thailand-content .dest-thailand-txt-2 ul li {
+  list-style-type: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding-top: 0.2em;
+}
+
+.dest-thailand-content .dest-thailand-txt-2 ul li span {
+  font-weight: 200;
+}
+
+.dest-thailand-content .dest-thailand-text h4 {
+  font-size: 2rem;
+}
+
+.dest-thailand-content .dest-thailand-text h4 .fas {
+  padding-left: 0.5em;
+}
+
+.dest-thailand-content .price-banner {
+  margin-top: 3em;
+  border-top: 0.5em solid white;
+  border-bottom: 0.5em solid white;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/aerial-beach-beautiful-472309.jpg);
+  background-position: bottom;
+  width: 100%;
+  float: left;
+  transition: 0.5s ease-in;
+  margin-bottom: 3em;
+}
+
+.dest-thailand-content .price-banner p {
+  text-align: center;
+  font-weight: 300;
+  font-size: 2.5rem;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-transform: uppercase;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.dest-thailand-content .price-banner .btn {
+  transition: background .5s ease-in;
+  margin-bottom: 1em;
+  font-size: 1.5rem;
+  max-width: 10em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid white;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.dest-thailand-content .price-banner .btn .fas {
+  padding-left: 0.5em;
+}
+
+.dest-thailand-content .price-banner:hover {
+  background-position: center;
+}
+
+.dest-thailand-content .price-banner:hover .btn {
+  background: var(--blue-trans);
+}
+
+.dest-thailand-content .price-banner .btn:hover {
+  font-weight: 600;
+}
+
+/*Destinations Page */
+.destinations-content {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.destinations-content .image-slider {
+  overflow: hidden;
+}
+
+.destinations-content .image-slider figure {
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  animation: 20s slideranimation infinite;
+}
+
+.destinations-content .image-slider figure img {
+  width: 20%;
+  float: left;
+}
+
+@keyframes slideranimation {
+  0% {
+    left: 0;
+  }
+
+  20% {
+    left: 0;
+  }
+
+  25% {
+    left: -100%;
+  }
+
+  45% {
+    left: -100%;
+  }
+
+  50% {
+    left: -200%;
+  }
+
+  70% {
+    left: -200%;
+  }
+
+  75% {
+    left: -300%;
+  }
+
+  95% {
+    left: -300%;
+  }
+
+  100% {
+    left: -400%;
+  }
+}
+
+.destinations-content .image-slider {
+  border: 0.5em solid white;
+}
+
+.destinations-content .btn {
+  margin-top: 5%;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  background-color: var(--blue);
+  width: 90%;
+  padding: 0.5em 0.75em;
+  border: 0.2em solid white;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5%;
+}
+
+.destinations-content .btn-under-image .fas {
+  padding-left: 0.5em;
+}
+
+.destinations-content .btn-under-text .fas {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.destinations-content .btn-under-text {
+  display: none;
+}
+
+/*#############################*/
+/*MEDIA QUERIES FOR DESKTOP VERSIONS*/
+/*##########################################*/
+@media screen and (min-width: 1100px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+
+  .logo {
+    grid-column: 2 / span 1;
+  }
+
+  nav {
+    all: unset;
+    grid-column: 3 / 4;
+    display: flex;
+    align-items: center;
+  }
+
+  nav ul {
+    display: flex;
+  }
+
+  nav a {
+    opacity: 1;
+    position: relative;
+  }
+
+  nav li {
+    margin-left: 3em;
+    margin-bottom: 0;
+  }
+
+  nav a::before {
+    content: '';
+    display: block;
+    height: 0.2em;
+    top: -0.7em;
+    left: 0;
+    right: 0;
+    width: 0;
+    background: white;
+    position: absolute;
+    transition: all ease-in-out 250ms;
+  }
+
+  nav a:hover::before {
+    width: 100%;
+  }
+
+  .slider-main {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .info-section {
+    position: relative;
+    top: -1em;
+    width: 90%;
+    color: white;
+    padding-left: 5%;
+  }
+
+  /*DISCOVER PROMO QUERIES*/
+  /*##########################################*/
+  .discover-promo-container {
+    height: 115vw;
+  }
+
+  .disc-promo-header {
+    width: 70%;
+    text-align: right;
+    background: linear-gradient(to right, var(--blue), var(--pink));
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-right: 0;
+    margin-bottom: 3em;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    border: 0.2em solid white;
+  }
+
+  .disc-promo-header h1 {
+    padding-right: 1em;
+  }
+
+  .disc-promo-content .image-container {
+    width: 55%;
+    margin-bottom: 5%;
+  }
+
+  .disc-promo-content .disc-promo-text {
+    width: 35%;
+    margin-bottom: 5%;
+  }
+
+  .disc-promo-content .img-cont-1 {
+    float: left;
+    margin-left: 5%;
+  }
+
+  .disc-promo-content .disc-promo-txt-1 {
+    float: left;
+    margin-left: 5%;
+    font-size: 3vw;
+    font-weight: 200;
+    text-align: right;
+  }
+
+  .disc-promo-content .img-cont-2 {
+    float: right;
+    margin-left: 5%;
+  }
+
+  .disc-promo-content .disc-promo-txt-2 {
+    float: left;
+    margin-left: 5%;
+    font-size: 3vw;
+    font-weight: 200;
+    margin-top: 1em;
+    text-align: left;
+  }
+
+  .disc-promo-content .img-cont-3 {
+    float: left;
+    margin-left: 5%;
+  }
+
+  .disc-promo-content .disc-promo-txt-3 {
+    float: left;
+    margin-left: 5%;
+    font-size: 3vw;
+    font-weight: 200;
+    text-align: left;
+    margin-top: 1em;
+    text-align: right;
+  }
+
+  /*GRID MEDIA QUERIES*/
+  /*##########################################*/
+  .destination-promo-header {
+    color: white;
+    margin-top: 2em;
+    width: 60%;
+    text-align: left;
+    border: 0.2em solid white;
+    border-left: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-left: 0;
+    margin-bottom: 3em;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+  }
+
+  .destination-promo-header h1 {
+    padding-left: 2em;
+  }
+
+  .main-content::before {
+    transform: skewX(45deg);
+  }
+
+  /*FOOTER MEDIA QUERIES*/
+  /*##########################################*/
+  .footer-nav .col {
+    float: left;
+    padding: 0.5em;
+    margin-top: 0;
+    width: 20%;
+    text-align: left;
+  }
+
+  .footer-nav .col:first-child {
+    padding-left: 0;
+  }
+
+  .footer-nav .col:last-child {
+    padding-right: 0;
+  }
+
+  .footer-nav .footer-logo {
+    width: 20%;
+  }
+
+  .breadcrumb {
+    width: auto;
+  }
+
+  .breadcrumb ul li a {
+    height: 4em;
+    padding: 1.5em 3em 0 4em;
+    font-size: 1rem;
+  }
+
+  /*apply some padding betweem the font awesome icons and the text*/
+  .breadcrumb ul li a .fas {
+    padding-right: 0.5em;
+  }
+
+  /*Create the arrow's end shape at the end of the crumb*/
+  .breadcrumb ul li a:after {
+    border-top: 2em solid transparent;
+    border-bottom: 2em solid transparent;
+    border-left: 2em solid var(--pink);
+    position: absolute;
+    right: -2em;
+  }
+
+  /*Create the arrow indentation at the beginning of the crumb*/
+  .breadcrumb ul li a:before {
+    content: "";
+    border-top: 2em solid transparent;
+    border-bottom: 2em solid transparent;
+    border-left: 2em solid white;
+  }
+
+  .hero-overlay, .slider-main .hero-overlay {
+    right: auto;
+    left: -2em;
+    top: 70vh;
+    width: 55%;
+  }
+
+  .hero-overlay h1 {
+    font-size: 2.5rem;
+    text-align: left;
+    margin-left: 3em;
+  }
+
+  .hero-overlay .btn, .slider-main .hero-overlay .btn {
+    padding: 0.5em 1em;
+    border-radius: 0;
+    border-right: none;
+    border-bottom: none;
+    text-transform: uppercase;
+    width: 50%;
+    float: right;
+    margin-bottom: 0;
+  }
+
+  .hero-overlay .btn .fas {
+    display: inline-block;
+    padding-top: 0;
+    padding-left: 0.5em;
+  }
+
+  .mini-slider .mini-slide-item, .mini-slider {
+    height: 40vh;
+  }
+
+  .item h3 {
+    padding-top: 0;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    padding-bottom: 0;
+  }
+
+  /*Snow discover page*/
+  .snow-content .snow-text {
+    width: 45%;
+    margin-left: 5%;
+    margin-top: 2em;
+    float: right;
+    text-align: right;
+  }
+
+  .snow-content .image-container {
+    width: 45%;
+    float: right;
+    margin-right: 5%;
+  }
+
+  .snow-content .snow-txt-2 {
+    margin-right: 5%;
+    margin-left: 0;
+    margin-top: 5%;
+    float: left;
+    text-align: left;
+  }
+
+  .snow-content .img-cont-2 {
+    float: left;
+    margin-left: 5%;
+    margin-right: 0;
+  }
+
+  .snow-content .snow-txt-3 {
+    margin-top: 5%;
+  }
+
+  /*Jungle discover page*/
+  .jungle-content .image-container {
+    width: 45%;
+    float: right;
+    margin-right: 5%;
+  }
+
+  .jungle-content .img-cont-2 {
+    float: left;
+    margin-left: 5%;
+    margin-right: 0;
+  }
+
+  .jungle-content .jng-txt-1 {
+    width: 45%;
+    float: right;
+    margin-left: 5%;
+    margin-top: 3em;
+    text-align: right;
+  }
+
+  .jungle-content .jng-txt-2 {
+    width: 45%;
+    float: left;
+    margin-right: 5%;
+    margin-top: 5em;
+    text-align: left;
+  }
+
+  .jungle-content .jng-txt-3 {
+    width: 45%;
+    float: right;
+    margin-Left: 5%;
+    margin-top: 4em;
+    text-align: right;
+  }
+
+  /*Beach discover page */
+  .beach-content .image-container {
+    width: 45%;
+    float: right;
+    margin-right: 5%;
+    margin-bottom: 5%;
+  }
+
+  .beach-content .beach-text {
+    margin-bottom: 5%;
+  }
+
+  .beach-content .img-cont-2 {
+    float: left;
+    margin-left: 5%;
+    margin-right: 0;
+  }
+
+  .beach-content .beach-txt-1 {
+    width: 45%;
+    float: right;
+    margin-left: 5%;
+    text-align: right;
+  }
+
+  .beach-content .beach-txt-2 {
+    width: 45%;
+    float: left;
+    margin-right: 5%;
+    text-align: left;
+  }
+
+  .beach-content .beach-txt-3 {
+    width: 45%;
+    float: right;
+    margin-Left: 5%;
+    text-align: right;
+  }
+
+  /*Destination Canada page */
+  .dest-can-whistler-header {
+    width: 70%;
+    text-align: right;
+    background: linear-gradient(to right, var(--blue), var(--pink));
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-left: auto;
+    margin-bottom: 2em;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    border: 0.2em solid white;
+  }
+
+  .dest-can-whistler-header h1 {
+    padding-right: 1em;
+  }
+
+  .dest-can-content .dest-can-text {
+    margin-top: 5%;
+    width: 45%;
+    margin-bottom: 5%;
+  }
+
+  .dest-can-content .image-container {
+    width: 45%
+  }
+
+  .dest-can-content .dest-can-txt-1 {
+    float: right;
+    text-align: right;
+    margin-left: 5%;
+  }
+
+  .dest-can-content .img-cont-1 {
+    float: right;
+    margin-right: 5%;
+  }
+
+  .dest-can-nfalls-header {
+    margin-top: 2em;
+    width: 70%;
+    text-align: left;
+    background: linear-gradient(to right, var(--blue), var(--pink));
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 2em;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    border: 0.2em solid white;
+    border-left: none;
+    float: left;
+  }
+
+  .dest-can-nfalls-header h1 {
+    padding-left: 1em;
+  }
+
+  .dest-can-content .dest-can-txt-2 {
+    float: left;
+    text-align: left;
+    margin-right: 5%;
+  }
+
+  .dest-can-content .img-cont-2 {
+    float: left;
+    margin-left: 5%;
+  }
+
+  .dest-can-packages-header {
+    width: 70%;
+    text-align: right;
+    background: linear-gradient(to right, var(--blue), var(--pink));
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-left: 30%;
+    margin-bottom: 2em;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    border: 0.2em solid white;
+    float: right;
+    margin-top: 2em;
+  }
+
+  .dest-can-packages-header h1 {
+    padding-right: 1em;
+  }
+
+  .dest-can-content .dest-can-txt-3 {
+    float: right;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .dest-can-content .dest-can-txt-3 h2 {
+    font-size: 4rem;
+  }
+
+  /*Overview*/
+  /*Day 1*/
+  .dest-can-content .dest-can-txt-5 {
+    float: right;
+    text-align: right;
+    margin-right: 5%;
+  }
+
+  .dest-can-content .img-cont-4 {
+    margin-top: 2em;
+    float: right;
+    margin-right: 5%;
+  }
+
+  /*Day 2*/
+  .dest-can-content .dest-can-txt-6 {
+    margin-top: 6em;
+    float: left;
+    text-align: left;
+    margin-right: 5%;
+  }
+
+  .dest-can-content .img-cont-5 {
+    margin-top: 6em;
+    float: left;
+    margin-right: 5%;
+  }
+
+  /*Day 3*/
+  .dest-can-content .dest-can-txt-7 {
+    margin-top: 6em;
+    float: right;
+    text-align: right;
+    margin-right: 5%;
+  }
+
+  .dest-can-content .img-cont-6 {
+    margin-top: 6em;
+    float: right;
+    margin-right: 5%;
+  }
+
+  /*Day 4*/
+  .dest-can-content .dest-can-txt-8 {
+    margin-top: 6em;
+    float: left;
+    text-align: left;
+    margin-right: 5%;
+  }
+
+  .dest-can-content .img-cont-7 {
+    margin-top: 6em;
+    float: left;
+    margin-right: 5%;
+  }
+
+  /*Day 5*/
+  .dest-can-content .dest-can-txt-9 {
+    margin-top: 6em;
+    float: right;
+    text-align: right;
+    margin-right: 5%;
+  }
+
+  .dest-can-content .img-cont-8 {
+    margin-top: 6em;
+    float: right;
+    margin-right: 5%;
+  }
+
+  /*Destination PERU page */
+  .dest-peru-amazon-header {
+    width: 70%;
+    text-align: right;
+    background: linear-gradient(to right, var(--green), var(--blue));
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-left: auto;
+    margin-bottom: 2em;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    border: 0.2em solid white;
+  }
+
+  .dest-peru-content .image-container {
+    width: 45%;
+    border: 0.5em solid white;
+  }
+
+  .dest-peru-content .dest-peru-text {
+    width: 45%;
+  }
+
+  .dest-peru-amazon-header h1 {
+    padding-right: 1em;
+  }
+
+  .dest-peru-content .img-cont-1 {
+    float: left;
+    margin-left: 5%;
+    border: none;
+  }
+
+  .dest-peru-content .dest-peru-txt-1 {
+    float: left;
+    text-align: left;
+    margin-right: 5%;
+  }
+
+  .dest-peru-machu-picchu-header {
+    margin-top: 2em;
+    width: 70%;
+    text-align: left;
+    background: linear-gradient(to right, var(--green), var(--blue));
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 2em;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    border: 0.2em solid white;
+    border-left: none;
+    float: left;
+  }
+
+  .dest-peru-content h4 {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .dest-peru-machu-picchu-header h1 {
+    padding-left: 1em;
+  }
+
+  .dest-peru-content .img-cont-2 {
+    float: right;
+    margin-right: 5%;
+    border: none;
+  }
+
+  .dest-peru-content .dest-peru-txt-2 {
+    float: right;
+    text-align: right;
+    margin-left: 5%;
+  }
+
+  .dest-peru-packages-header {
+    display: none;
+  }
+
+  .dest-peru-content .dest-peru-txt-3 {
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .dest-peru-content .dest-peru-txt-3 h2 {
+    font-size: 4rem;
+  }
+
+  .dest-peru-content .dest-peru-txt-4 {
+    font-size: 1.2rem;
+    width: 100%;
+    float: left;
+    margin-bottom: 5%;
+  }
+
+  /*Day 1 Row */
+  .dest-peru-content .dest-peru-txt-5 {
+    margin-top: 5%;
+    text-align: left;
+    float: left;
+    width: 45%;
+    margin-right: 5%;
+  }
+
+  .dest-peru-content .img-cont-3 {
+    margin-top: 5%;
+    float: left;
+    width: 45%;
+    margin-left: 5%;
+  }
+
+  /*Day 2 Row */
+  .dest-peru-content .dest-peru-txt-6 {
+    text-align: right;
+    float: right;
+    margin-left: 5%;
+    margin-top: 5%;
+  }
+
+  .dest-peru-content .img-cont-4 {
+    margin-right: 5%;
+    float: right;
+    margin-top: 5%;
+  }
+
+  /*Day 3 Row */
+  .dest-peru-content .dest-peru-txt-7 {
+    margin-right: 5%;
+    text-align: left;
+    float: left;
+    margin-top: 5%;
+  }
+
+  .dest-peru-content .img-cont-5 {
+    float: left;
+    margin-left: 5%;
+    margin-top: 5%;
+  }
+
+  /*Day 4 Row */
+  .dest-peru-content .dest-peru-txt-8 {
+    float: right;
+    margin-left: 5%;
+    margin-top: 5%;
+    text-align: right;
+  }
+
+  .dest-peru-content .img-cont-6 {
+    float: right;
+    margin-right: 5%;
+    margin-top: 5%;
+  }
+
+  /*Day 5 Row */
+  .dest-peru-content .dest-peru-txt-9 {
+    float: left;
+    margin-right: 5%;
+    margin-top: 5%;
+    text-align: left;
+  }
+
+  .dest-peru-content .img-cont-7 {
+    float: left;
+    margin-left: 5%;
+    margin-top: 5%;
+  }
+
+  /*Day 6 Row */
+  .dest-peru-content .dest-peru-txt-10 {
+    float: right;
+    margin-left: 5%;
+    margin-top: 5%;
+    text-align: right;
+  }
+
+  .dest-peru-content .img-cont-8 {
+    float: right;
+    margin-right: 5%;
+    margin-top: 5%;
+  }
+
+  /*Day 7 Row */
+  .dest-peru-content .dest-peru-txt-11 {
+    float: left;
+    margin-right: 5%;
+    margin-top: 5%;
+    text-align: left;
+  }
+
+  .dest-peru-content .img-cont-9 {
+    float: left;
+    margin-left: 5%;
+    margin-top: 5%;
+  }
+
+  /*Day 8 Row */
+  .dest-peru-content .dest-peru-txt-12 {
+    float: right;
+    margin-left: 5%;
+    margin-top: 5%;
+    text-align: right;
+  }
+
+  .dest-peru-content .img-cont-10 {
+    float: right;
+    margin-right: 5%;
+    margin-top: 5%;
+  }
+
+  .dest-peru-content .image-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dest-peru-content .dest-peru-image-overlay {
+    background: rgba(1, 1, 1, 0.5);
+    position: absolute;
+    bottom: 0.2em;
+    width: 100%;
+    padding-bottom: 1em;
+    border-bottom-left-radius: : 0.5em;
+    border-bottom-right-radius: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.2rem;
+    padding-bottom: 0;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  /*REFERENCES PAGE*/
+  .references-image-sources-header {
+    margin-top: 2em;
+    width: 70%;
+    text-align: right;
+    background: linear-gradient(to right, var(--blue), var(--green));
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 2em;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    border: 0.2em solid white;
+    border-right: none;
+    float: right;
+  }
+
+  .references-image-sources-header h1 {
+    padding-right: 1em;
+  }
+
+  .references-content .image-container {
+    width: 45%;
+    float: right;
+    margin-right: 5%;
+    margin-bottom: 5%;
+  }
+
+  .references-content .video-container {
+    width: 45%;
+    float: left;
+    margin-right: 5%;
+  }
+
+  .videos-used-header {
+    margin-top: 2em;
+    width: 70%;
+    text-align: left;
+    background: linear-gradient(to right, var(--blue), var(--green));
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 2em;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    border: 0.2em solid white;
+    border-left: none;
+    float: left;
+  }
+
+  .videos-used-header h1 {
+    padding-left: 1em;
+  }
+
+  /*Thailand page*/
+  .dest-thailand-content .dest-thailand-txt-1 h2 {
+    font-size: 4rem;
+  }
+
+  .dest-thailand-content .dest-thailand-txt-2 li {
+    font-weight: 500;
+  }
+
+  .dest-thailand-content .dest-thailand-txt-2 li span {
+    font-weight: 200;
+  }
+
+  .dest-thailand-content .dest-thailand-text h4 {
+    font-size: 2rem;
+  }
+
+  /*What are we offering header*/
+  .dest-thailand-content .dest-thailand-txt-1 {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin-top: 2em;
+  }
+
+  .dest-thailand-content .dest-thailand-text {
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .dest-thailand-content .image-container {
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .dest-thailand-content .dest-thailand-txt-1 {
+    width: 100%;
+  }
+
+  .dest-thailand-content .dest-thailand-txt-2 {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+
+  .dest-thailand-content .dest-thailand-txt-3 {
+    float: left;
+    margin-right: 5%;
+    text-align: left;
+  }
+
+  .dest-thailand-content .img-cont-1 {
+    float: left;
+    margin-left: 5%;
+  }
+
+  .dest-thailand-content .dest-thailand-txt-4 {
+    float: right;
+    margin-left: 5%;
+    margin-top: 5%;
+    text-align: right;
+  }
+
+  .dest-thailand-content .img-cont-2 {
+    float: right;
+    margin-right: 5%;
+    margin-top: 5%;
+  }
+
+  .dest-thailand-phuket-header {
+    margin-top: 2em;
+    width: 70%;
+    text-align: left;
+    background: linear-gradient(to right, var(--blue), var(--green));
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 2em;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    border: 0.2em solid white;
+    border-left: none;
+    float: left;
+    margin-top: 5%;
+  }
+
+  .dest-thailand-phuket-header h1 {
+    padding-left: 1em;
+  }
+
+  .dest-thailand-content .dest-thailand-txt-5 {
+    float: left;
+    text-align: left;
+    margin-right: 5%;
+    margin-top: 5%;
+  }
+
+  .dest-thailand-content .img-cont-3 {
+    float: left;
+    margin-left: 5%;
+    margin-top: 5%;
+  }
+
+  /*Destinations Page */
+  .destinations-canada-header {
+    width: 70%;
+    text-align: right;
+    background: linear-gradient(to right, var(--blue), var(--pink));
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-left: auto;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    border: 0.2em solid white;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .destinations-canada-header h1 {
+    padding-right: 1em;
+  }
+
+  .destinations-content .image-container {
+    width: 45%;
+  }
+
+  .destinations-content .destinations-text {
+    width: 45%;
+  }
+
+  .destinations-content .img-cont-1 {
+    float: right;
+    margin-right: 5%;
+  }
+
+  .destinations-content .destinations-txt-1 {
+    float: right;
+    margin-left: 5%;
+    text-align: right;
+  }
+
+  .destinations-content .destinations-txt-1 .btn {
+    margin-right: 0;
+  }
+
+  .destinations-peru-header {
+    margin-top: 2em;
+    width: 70%;
+    text-align: left;
+    background: linear-gradient(to right, var(--blue), var(--pink));
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    border: 0.2em solid white;
+    border-left: none;
+    float: left;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .destinations-peru-header h1 {
+    padding-left: 1em;
+  }
+
+  .destinations-content .img-cont-2 {
+    float: left;
+    margin-left: 5%;
+  }
+
+  .destinations-content .destinations-txt-2 {
+    float: left;
+    margin-right: 5%;
+    text-align: left;
+  }
+
+  .destinations-content .destinations-txt-2 .btn {
+    margin-left: 0;
+  }
+
+  .destinations-thailand-header {
+    width: 70%;
+    text-align: right;
+    background: linear-gradient(to right, var(--blue), var(--pink));
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-left: auto;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    border: 0.2em solid white;
+    float: right;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .destinations-thailand-header h1 {
+    padding-right: 1em;
+  }
+
+  .destinations-content .img-cont-3 {
+    float: right;
+    margin-right: 5%;
+  }
+
+  .destinations-content .destinations-txt-3 {
+    float: right;
+    margin-left: 5%;
+    text-align: right;
+  }
+
+  .destinations-content .destinations-txt-3 .btn {
+    margin-right: 0;
+  }
+
+  .destinations-content .btn-under-image {
+    display: none;
+  }
+
+  .destinations-content .btn-under-text {
+    display: block;
+    width: 15em;
+  }
+
+  .destinations-content .btn-under-text:hover {
+    font-weight: 600;
+    background-color: var(--pink);
+  }
+
+  /*Discover Page*/
+  .discover-snow-header {
+    width: 70%;
+    text-align: right;
+    background: linear-gradient(to right, var(--blue), var(--pink));
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-left: auto;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    border: 0.2em solid white;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .discover-snow-header h1 {
+    padding-right: 1em;
+  }
+
+  .discover-content .image-container {
+    width: 45%;
+  }
+
+  .discover-content .discover-text {
+    width: 45%;
+  }
+
+  .discover-content .img-cont-1 {
+    float: right;
+    margin-right: 5%;
+  }
+
+  .discover-content .discover-txt-1 {
+    float: right;
+    margin-left: 5%;
+    text-align: right;
+  }
+
+  .discover-content .discover-txt-1 .btn {
+    margin-right: 0;
+  }
+
+  .discover-jungle-header {
+    margin-top: 2em;
+    width: 70%;
+    text-align: left;
+    background: linear-gradient(to right, var(--blue), var(--pink));
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    border: 0.2em solid white;
+    border-left: none;
+    float: left;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .discover-jungle-header h1 {
+    padding-left: 1em;
+  }
+
+  .discover-content .img-cont-2 {
+    float: left;
+    margin-left: 5%;
+  }
+
+  .discover-content .discover-txt-2 {
+    float: left;
+    margin-right: 5%;
+    text-align: left;
+  }
+
+  .discover-content .discover-txt-2 .btn {
+    margin-left: 0;
+  }
+
+  .discover-beach-header {
+    width: 70%;
+    text-align: right;
+    background: linear-gradient(to right, var(--blue), var(--pink));
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-left: auto;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    border: 0.2em solid white;
+    float: right;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .discover-beach-header h1 {
+    padding-right: 1em;
+  }
+
+  .discover-content .img-cont-3 {
+    float: right;
+    margin-right: 5%;
+  }
+
+  .discover-content .discover-txt-3 {
+    float: right;
+    margin-left: 5%;
+    text-align: right;
+  }
+
+  .discover-content .discover-txt-3 .btn {
+    margin-right: 0;
+  }
+
+  .discover-content .btn-under-image {
+    display: none;
+  }
+
+  .discover-content .btn-under-text {
+    display: block;
+    width: 15em;
+  }
+
+  .discover-content .btn-under-text:hover {
+    font-weight: 600;
+    background-color: var(--pink);
+  }
+}
+
+/*Fix footer*/
+@media screen and (max-width: 860px) {
+
+  /*Set width to 25% on mobile because the image col spawns on top not inline*/
+  .footer-nav .col {
+    width: 50%;
+    padding-left: 5em;
+    padding-top: 3em;
+    text-align: left;
+  }
+
+  .footer-nav .footer-logo {
+    width: 100%;
+    padding-left: 0em;
+  }
+
+  .footer-nav .col-5 {
+    position: relative;
+    top: -12em;
+  }
+
+  footer {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+/*Fix footer*/
+@media screen and (max-width: 605px) {
+
+  /*Set width to 25% on mobile because the image col spawns on top not inline*/
+  .footer-nav .col {
+    padding-left: 0em;
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-nav .footer-logo {
+    width: 100%;
+  }
+
+  .footer-nav .col-5 {
+    top: 0;
+  }
+
+  footer {
+    padding: 4em;
+  }
+}
